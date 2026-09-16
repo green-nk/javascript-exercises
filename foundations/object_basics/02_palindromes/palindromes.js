@@ -18,5 +18,7 @@ function isAlphaNumeric(s) {
     return s.toLowerCase() !== s.toUpperCase() || (s >= '0' && s <= '9');
 }
 
+// See solution/palindromes-solution.js for practicing array methods
+
 // Do not edit below this line
 module.exports = palindromes;
