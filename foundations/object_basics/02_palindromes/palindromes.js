@@ -5,8 +5,8 @@ const palindromes = function (string) {
         let s1 = lowerString.at(i);
         let s2 = lowerString.at(j);
         
-        while (!isLower(s1)) s1 = lowerString.at(++i);
-        while (!isLower(s2)) s2 = lowerString.at(--j);
+        while (!isAlphaNumeric(s1)) s1 = lowerString.at(++i);
+        while (!isAlphaNumeric(s2)) s2 = lowerString.at(--j);
 
         if (i < j && (s1 != s2)) return false;
     }
@@ -14,9 +14,8 @@ const palindromes = function (string) {
     return true;
 };
 
-function isLower(s) {
-    const c = s.charCodeAt(0);
-    return c >= 97 && c <= 122; // a-z
+function isAlphaNumeric(s) {
+    return s.toLowerCase() !== s.toUpperCase() || (s >= '0' && s <= '9');
 }
 
 // Do not edit below this line
