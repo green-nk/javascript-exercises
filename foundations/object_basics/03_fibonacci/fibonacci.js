@@ -1,5 +1,5 @@
-const fibonacci = function(number) {
-    if (!isValidInt(number)) return "OOPS";
+const fibonacci = function(idx) {
+    if (!isValidInt(idx)) return "OOPS";
 };
 
 function isValidInt(input) {
