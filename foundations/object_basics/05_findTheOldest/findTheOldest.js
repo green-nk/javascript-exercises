@@ -1,22 +1,21 @@
 const findTheOldest = function(people) {
-    let greatestAge = Number.MIN_SAFE_INTEGER;
-    let greatestAgeIdx = -1;
+    return people.reduce(
+        (personWithGreatestAge, person) => {
+            const age = getAge(person);
+            const greatestAge = getAge(personWithGreatestAge);
 
-    for (let i = 0; i < people.length; i++) {
-        const person = people[i];
+            if (age > greatestAge) personWithGreatestAge = person;
+            return personWithGreatestAge;
+    });
+};
 
-        const birthyear = person.yearOfBirth;
-        let deathyear = new Date().getFullYear();
-        if ("yearOfDeath" in person) deathyear = person.yearOfDeath;
+function getAge(person) {
+    const birthyear = person.yearOfBirth;
 
-        const age = deathyear - birthyear;
-        if (age > greatestAge) {
-            greatestAge = age;
-            greatestAgeIdx = i;
-        }
-    }
+    let deathyear = new Date().getFullYear();
+    if ("yearOfDeath" in person) deathyear = person.yearOfDeath;
 
-    return people[greatestAgeIdx];
+    return deathyear - birthyear;
 };
 
 // Do not edit below this line
