@@ -4,8 +4,7 @@ const findTheOldest = function(people) {
             const age = getAge(person);
             const greatestAge = getAge(personWithGreatestAge);
 
-            if (age > greatestAge) personWithGreatestAge = person;
-            return personWithGreatestAge;
+            return (age > greatestAge) ? person : personWithGreatestAge;
     });
 };
 
